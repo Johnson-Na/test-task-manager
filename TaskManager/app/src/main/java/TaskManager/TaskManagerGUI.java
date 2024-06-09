@@ -71,10 +71,10 @@ public class TaskManagerGUI extends JFrame {
     }
 
     public void updateHighPriorityTasksArea() {
-        highPriorityTasksArea.setText("High Priority task: ");
+        highPriorityTasksArea.setText("High Priority Task: \n");
         for (Task task : taskManager.getTasks()) {
             if ("High".equals(task.getPriority()) && !task.isDone()) {
-                highPriorityTasksArea.append(task.getName() + task.getDeadline() + "\n");
+                highPriorityTasksArea.append("* " + task.getName() + " " + task.getDeadline() + "\n");
             }
         }
     }
