@@ -12,7 +12,7 @@ public class TaskManagerGUI extends JFrame {
     public TaskManagerGUI() {
         taskManager = TaskManager.getInstance();
         setTitle("Task Manager");
-        setSize(600, 400);
+        setSize(600, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initUI();
     }
