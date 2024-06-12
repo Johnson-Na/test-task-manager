@@ -23,10 +23,8 @@ public class TaskManagerGUI extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        JLabel welcomeLabel = new JLabel("Welcome to TaskManager");
-        panel.add(welcomeLabel);
-        panel.add(Box.createRigidArea(new Dimension(0, 30)));
-        
+        panel.add(Box.createRigidArea(new Dimension(30, 30)));
+
         JButton addTaskButton = new JButton("Add New Task");
         addTaskButton.addActionListener(new ActionListener() {
             @Override
@@ -36,7 +34,7 @@ public class TaskManagerGUI extends JFrame {
         });
         panel.add(addTaskButton);
         panel.add(Box.createRigidArea(new Dimension(30, 30)));
-        
+
         JButton removeTaskButton = new JButton("Remove Task");
         removeTaskButton.addActionListener(new ActionListener() {
             @Override
@@ -65,6 +63,8 @@ public class TaskManagerGUI extends JFrame {
             }
         });
         panel.add(showAllTasksButton);
+        panel.add(Box.createRigidArea(new Dimension(30, 30)));
+
 
         add(panel, BorderLayout.WEST);
 
@@ -72,11 +72,14 @@ public class TaskManagerGUI extends JFrame {
         JScrollPane scrollPane = new JScrollPane(highPriorityTasksArea);
         highPriorityTasksArea.setEditable(false);
         
+        scrollPane.setBorder(new EmptyBorder(20, 20, 20, 20));
+    
         updateHighPriorityTasksArea();
         add(scrollPane, BorderLayout.CENTER);
     }
 
     public void updateHighPriorityTasksArea() {
+        highPriorityTasksArea.add(Box.createRigidArea(new Dimension(30, 30)));
         highPriorityTasksArea.setText("High Priority Task: \n");
         for (Task task : taskManager.getTasks()) {
             if ("High".equals(task.getPriority()) && !task.isDone()) {
